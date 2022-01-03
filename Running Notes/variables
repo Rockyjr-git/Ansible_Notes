@@ -1,0 +1,15 @@
+Ansible variables:
+============================
+
+* Define within the playbook
+
+* Passing from the external files
+===== Create a variable file in any directory and pass the header as below in the main file:
+vars_files:
+ - <path of the variable file>
+
+* Passing from hosts inventory
+
+* Passing while running the playbook
+
+* Using group_vars or hosts_vars and so on 

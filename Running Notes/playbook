@@ -1,0 +1,12 @@
+Ansible Playbook:
+=======================
+
+Mandate Parameter in the Playbook are:
+
+ * name
+ * hosts
+ * tasks
+
+To Dry run the playbook:
+
+* ansible-playbook playbook.yaml --check

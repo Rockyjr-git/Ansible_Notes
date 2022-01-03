@@ -1,0 +1,16 @@
+Ansible Target Node:
+======================================
+
+vi /etc/hostname
+useradd ansadmin
+passwd ansadmin
+visudo --- ansadmin ALL=(ALL)  NOPASSWD=ALL
+vi /etc/ssh/sshd_config -- enable passwordauthen
+sudo service sshd reload
+su - ansadmin
+
+
+Copy id_rsa.pub from Controller node to Target nodes:
+in controller node execute below command
+cd .ssh/
+ssh-copy-id ansadmin@ipaddress of target node

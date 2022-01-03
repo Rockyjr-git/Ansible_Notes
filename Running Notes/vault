@@ -1,0 +1,20 @@
+Ansible Vault:
+==================
+
+* Ansible Vault is a feature of ansible that allows you to keep sensitive data such as passwords or keys in encrypted files, rather than as plaintext in playbooks or roles.
+
+* ansible-vault create vault1.yaml
+* ansible-vault view vault1.yaml
+* ansible-vault edit vault1.yaml
+* ansible-vault encrypt vault1.yaml
+* ansible-vault decrypt vault1.yaml
+
+Create a yaml file to clone the private repo from the Github:
+=============================================================
+
+* create a file git_clone.yaml
+* to pass the credential from the vault, create a file
+  --- ansible-vault create vault1.yaml
+ * Now the vault file in the git_clone yaml file.
+ * Now run the file using playbook command
+  --- ansible-playbook git_clone.yaml --ask-vault-password

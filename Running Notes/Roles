@@ -1,0 +1,20 @@
+Ansible Roles:
+============================
+
+1. To init the ansible-roles execute below command
+* ansible-galaxy init <role_name>
+
+2. Now add the files in the respective directory
+
+3. Now execute the ansible roles by creating new playbook
+* vi ansible_roles.yaml
+
+---
+
+- name: Playbook to call the ansible roles
+  hosts: all
+  become: true
+  gather_facts: yes
+
+  roles:
+  - <role_name>

@@ -1,0 +1,17 @@
+#Ansible Playbook:
+=======================
+
+#Create_user.yml
+
+---
+
+- name: Create a user
+  hosts: all
+  become: true
+  tasks:
+  - name: Removing a user john 
+    user: 
+     name: john
+     state: absent
+     remove: yes
+    

@@ -1,0 +1,22 @@
+Ansible Controller Node:
+=======================================
+
+sudo su -
+vi /etc/hostname
+useradd ansadmin
+passwd ansadmin
+vi /etc/sudoers or visudo
+add thsi line ------ ansadmin ALL=(ALL)  NOPASSDW: ALL
+vi /etc/ssh/sshd_config ----- enable Passwordauthentication yes
+sudo service sshd reload
+
+su - ansadmin
+
+Generate ssh Keys:
+
+ssh-keygen
+
+Now install Ansible:
+
+check python is installed or not
+sudo yum install ansible

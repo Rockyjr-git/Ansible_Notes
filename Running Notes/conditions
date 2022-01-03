@@ -1,0 +1,30 @@
+Ansible Conditions:
+=============================
+
+* When condition -- when the hosts are both redhat and ubuntu, httpd works in redhat and apache2 works in ubuntu.. in such case, when condition is used so that apache2 and httpd is installed in the respective envirnoments..
+
+synatx: "ansible_os_family" == "RedHat"
+        "ansible_os_family" == "Debian"
+
+* with_items  --- This can be used as loops to do the repeatitive tasks..
+
+* Notify & Handlers ---- this is used when the above task ( Notify ) is changed, the handlers gets executed..
+                         Note: Notify and Handlers should be the same...
+
+sample playbook below:
+--------------------------
+---
+- name: installing packages
+  hosts: all
+  tasks:
+  - name: To install httpd package
+    yum:
+      name: httpd
+      state: present
+    notify: start the service
+
+  handlers:  
+  - name: start the service
+    service:
+      name: httpd
+      state: started    

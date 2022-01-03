@@ -1,0 +1,17 @@
+---
+
+- name: Using loops for the packages
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Installing & Uninstalling the packages
+    yum:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+    with_items:
+     - { a: 'tree', b: 'present'}
+     - { a: 'wget', b: 'present'}   
+     - { a: 'git', b: 'absent'}   
+
+   

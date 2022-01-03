@@ -1,0 +1,13 @@
+---
+
+- name: To clone the private repo from Github
+  hosts: all
+  become: true
+  vars_files:
+   - <file_name> # Create a variable file and store the credentials in them..
+
+  tasks:
+  - name: To clone
+    git:
+      repo: https://github.com/Rockyjr-git/ansible_vault.git
+      dest: /home/ansadmin/git

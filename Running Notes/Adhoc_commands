@@ -1,0 +1,28 @@
+Ansible Adhoc Commands:
+====================================
+
+ansible all -m yum -a "name=git" -b
+
+m = module
+a = attribute
+b = root access
+
+commands are: 
+============
+
+ping
+command
+stat
+yum, apt
+user
+
+ansible all --list-hosts
+
+Ansible doc link: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/script_module.html
+
+If the Inventory File exist in different location:
+---------------------------------------------------
+
+* create a file as file name as (inventory.ini)
+* Add the hosts in that file
+* ansible all -i <path> -m command -a "free"

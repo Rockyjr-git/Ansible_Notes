@@ -1,0 +1,28 @@
+---
+
+- name: Configure tomcat in all the servers
+  hosts: all
+  become: true
+
+  tasks:
+  - name:
+    yum:
+      name: java-1.8.0-openjdk
+      state: present
+
+  - name: To download the tomcat
+    get_url:
+      url: https://downloads.apache.org/tomcat/tomcat-8/v8.5.73/bin/apache-tomcat-8.5.73.tar.gz.sha512
+      dest: /usr/local/bin
+
+  - name: unarchive the downloaded package
+    unarchive:
+      src: /usr/local/bin/apache-tomcat-8.5.73.tar.gz.sha512
+      dest: /usr/local/bin
+
+  - name: To start the tomcat services
+    shell:
+      command: nohup /usr/local/bin/apache-tomcat-8.5.73/bin/startup.sh
+
+
+  
